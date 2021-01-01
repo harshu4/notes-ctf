@@ -1,0 +1,36 @@
+Everything related to networking goes here DUh!
+
+
+1) Physical Layer (Please) (BiTs)
+    Data is converted to electric signals and vice versa.
+2) Data Link Layer (Do) (Frames)
+    Packets from network layer is converted to frames , some checks are added 
+    adds mac address to header , trailer is added
+3) Network Layer (Not)(Packets) 
+    Decides the route that the packets will take,add source and destination ip address
+4) Transport Layer (Throw)(Segments/Datagram)
+    Decides the protocol to use TCP or UDP
+5) Session Layer (Sausage)(Data)
+    Creates a session between two host
+6) Presentation Layer (Pizza)(Data)
+    Converts data to and from Application Layer and Session Layer
+7) Application layer (Away)(Data) : 
+    This is what is visible outside.
+
+TCP / IP 
+
+1) Network-Interface (Physical and Datalink)
+2) Internet (Network)
+3) Transport (Transport)
+4) Application (Application Presentation and Session)
+
+DNS
+
+recursive dns server --> Root dns server --> top-level domain server --> authoritive name server
+
+Ping :- Sends ICMP packets for host discovery (ICMP packets are TCP)
+Traceroute :- Used to discover route 
+WHOIS :- Info about Domains
+DIG :- Used to query DNS
+
+
