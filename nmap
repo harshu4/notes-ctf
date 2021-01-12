@@ -66,3 +66,13 @@ add script and use nmap --script-updatedb
 -A : aggressive scanning Os,version etc
 -v : verbose lvl1
 -p- : scan all ports
+
+
+All tcp flags :
+
+PSH : push them all to application layer
+URG : Urgent send me first please
+FIN : Close connection softly
+RST : I am out or you are fired
+ACK : Acknowledge
+SYN : Let's talk shall we ?
