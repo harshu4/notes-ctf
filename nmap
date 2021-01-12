@@ -1,0 +1,68 @@
+nmap :- map em all
+
+Used to scan port and networks (rustscan may replace) current standard
+
+
+RFC : 793 states that if  a connection does not exist(Port is close) send
+a RST response
+
+Many firewall drop tcp packets instead of sending RST hence port can be identified
+as filtered iptables can be used to change this response
+
+Different Types of Scan
+
+Syn Scan (-sS) : Also called stealth scan sends syn requests and instead
+                 of sending ack after syn/ack sends RST , needs root permission
+                 not detectable
+
+TCP Scan (-sT) : Tries to establish a normal three way handshake, same rules for
+                 filtered and closed port
+
+
+UDP Scan (-sU)  : UDP connections are stateless, when a packet is sent and no
+                  response is receieved the packet is marked as open|filtered
+                  when the UDP port is closed the target should respond with an ICMP
+                  packet containing message that port is unreachable
+
+Null Scan (-sN) : sends TCP packet with no flags set at all, according to RFC
+                  if the port is closed host has to respond with RST
+
+FIN scan(-sF) :  sends a TCP packet with fin flag set , expects an RST response
+                  if port is closed
+
+Xmas Scan(-sX) : sends a malformed TCP with URG,PSH and FIN flag on , expects
+                  RST in response for closed Port
+
+
+Ping sweep : used to find active host in a network infrastructure
+
+-sn : pings with ICMP notation
+192.168.0.1-254 or 192.168.0.0/24 (don't mess with the first 24 bits)
+
+Firewall evasion is necessary sometimes , windows block all ICMP packets
+-Pn tells nmap scan port without checking if host is up or notation
+
+-f : split packets into smaller pieces
+--scan-delay : names says it all
+--badsum : send bad checksum , tcp/ip stack would drop the request but firewall may
+           respond without checking
+
+
+Nmap Scripts : Lua Lua Lua
+
+Scripts of different categories are available : safe,intrusive etc etc
+
+--script=<category>
+--script=<script-name>
+--script=<script-name> --script-args <script-name>.<arg>=<value>,<script-name>.<arg2>=<value2>,
+
+all scripts are stored in /usr/share/nmap/scripts/
+
+use script.db is a grepable db to find Scripts
+add script and use nmap --script-updatedb
+
+
+-O : os fingerprinting
+-A : aggressive scanning Os,version etc
+-v : verbose lvl1
+-p- : scan all ports
