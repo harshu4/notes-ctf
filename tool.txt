@@ -1,0 +1,7 @@
+Tools Of Trade
+
+Samba :- SMB drivers for Ubuntu
+Enum4Linux :- used to enumerate SMB shares on both windows and linux
+smbclient :- used as a client to connect to smb
+hydra : THC for bruteforcing
+tcpdump : monitor tcp connections 
